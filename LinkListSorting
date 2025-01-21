@@ -1,0 +1,46 @@
+import java.util.*;
+
+public class Main {
+    public static void main(String[] args) {
+        // Create LinkedList containing HashMaps
+        LinkedList<HashMap<String, Integer>> list = new LinkedList<>();
+
+        // Add some HashMaps to the LinkedList
+        HashMap<String, Integer> map1 = new HashMap<>();
+        map1.put("apple", 3);
+        map1.put("banana", 1);
+        map1.put("cherry", 2);
+        list.add(map1);
+
+        HashMap<String, Integer> map2 = new HashMap<>();
+        map2.put("dog", 5);
+        map2.put("elephant", 7);
+        map2.put("cat", 4);
+        list.add(map2);
+
+        // Sort each HashMap inside the LinkedList
+        LinkedList<HashMap<String, Integer>> sortedList = new LinkedList<>();
+
+        for (HashMap<String, Integer> map : list) {
+            // Convert HashMap to List of Map.Entry
+            List<Map.Entry<String, Integer>> entries = new ArrayList<>(map.entrySet());
+
+            // Sort the list by values (or by keys if needed)
+            entries.sort(Map.Entry.comparingByValue());
+
+            // Create a new LinkedHashMap (preserves the order of insertion)
+            LinkedHashMap<String, Integer> sortedMap = new LinkedHashMap<>();
+            for (Map.Entry<String, Integer> entry : entries) {
+                sortedMap.put(entry.getKey(), entry.getValue());
+            }
+
+            // Add the sorted map to the sorted LinkedList
+            sortedList.add(sortedMap);
+        }
+
+        // Print the sorted LinkedList
+        for (HashMap<String, Integer> sortedMap : sortedList) {
+            System.out.println(sortedMap);
+        }
+    }
+}
