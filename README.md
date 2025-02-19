@@ -9,7 +9,7 @@
 ---
 
 ## Introduction
-This project demonstrates how to use tables and headings in a `README.md` file.
+This project ~demonstrates~ how to use tables and headings in a `README.md` file.
 
 ---
 
